@@ -6,13 +6,15 @@ function getComputerChoice() {
 }
 
 let choicePlayer = "Rock";
-choicePlayer = choicePlayer.toLowerCase();
 let choiceComputer = "Paper";
-choiceComputer = choiceComputer.toLocaleLowerCase();
 
 function game1(a, b){
 
-  if (a === "rock" & b === "paper"){
+     a = a.toLocaleLowerCase();
+     b = b.toLocaleLowerCase();
+
+  if (a === "rock" & b === "paper" || a === "paper" & b === "rock"){
+    
     return "You Lose! Paper Beats Rock";
   }
   else if(a === "rock" & b === "rock") {
