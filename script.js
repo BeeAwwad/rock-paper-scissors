@@ -1,7 +1,7 @@
 function getComputerChoice() {
     // Computer's choice
     let gameChoices = ["rock", "paper", "scissors"];
-    let computerPick = Math.floor(Math.random() * gameChoices.length);
+    let computerPick = gameChoices[Math.floor(Math.random() * gameChoices.length)];
     return computerPick;
 }
 
