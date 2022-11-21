@@ -5,7 +5,8 @@ function getComputerChoice() {
     return computerPick;
 }
 
-let playerChoice = "Scissors";
+let playerSelection = "Scissors";
+/*const computerSelection = getComputerChoice();*/
 
 function playround(a, b){
 
