@@ -4,36 +4,46 @@ function getComputerChoice() {
     let computerPick = gameChoices[Math.floor(Math.random() * gameChoices.length)];
     return computerPick;
 }
+function getPlayerChoice() {
+  let rock = document.getElementById("rock");
+  rock.addEventListener('click', "rock");
 
-let playerSelection = "Scissors";
-/*const computerSelection = getComputerChoice();*/
+  let paper = document.getElementById("paper");
+  rock.addEventListener('click', "paper");
 
-function playround(a, b){
+  let scissors = document.getElementById("scissors");
+  rock.addEventListener('click', "scissors");
+}
 
-     a = a.toString().toLowerCase();
-     b = b.toString().toLowerCase();
+let playerSelection = getPlayerChoice();
+let computerSelection = getComputerChoice();
 
-  if (a === "rock" & b === "paper"){
-    
-    return "You Lose! Paper Beats Rock";
+let resultText = document.getElementById("win-lose");
+
+function playRound(playerSelection, computerSelection){
+
+     //a = a.toString().toLowerCase();
+
+  if (playerSelection == "rock" & computerSelection == "paper"){
+    return `You Lose! ${computerSelection} beats ${playerSelection}!`;
   }
-  else if (a === "paper" & b === "rock"){
-    return "You Win! Paper Beats Rock"
+  else if (playerSelection == "paper" & computerSelection == "rock"){
+    return `You Win! ${playerSelection} beats ${computerSelection}!`
   }
-  else if(a === "scissors" & b === "rock"){
-    return "You Lose! Rock Beats Scissors"
+  else if(playerSelection == "scissors" & computerSelection == "rock"){
+    return `You Lose! ${computerSelection} beats ${playerSelection}!`
   }
-  else if(a === "rock" & b === "scissors"){
-    return "You Win! Rock Beats Scissors"
+  else if(playerSelection == "rock" & computerSelection == "scissors"){
+    return `You Win! ${playerSelection} beats ${computerSelection}!`
   }
-  else if(a === "paper" & b === "scissors"){
-    return "You Lose! Scissors Beats Paper"
+  else if(playerSelection == "paper" & computerSelection == "scissors"){
+    return `You Lose! ${computerSelection} beats ${playerSelection}!`
   }
-  else if(a === "scissors" & b === "paper"){
-    return "You Win! Scissors Beats Paper"
+  else if(playerSelection == "scissors" & computerSelection == "paper"){
+    return `You Win! ${playerSelection} beats ${computerSelection}!`
   }
-  else if(a === "rock" & b === "rock" || a === "paper" & b === "paper" || a === "scissors" & b === "scissors") {
-    return "draw";
+  else if(playerSelection == computerSelection) {
+    return "Tie";
   }
   else{
     return "No player";
