@@ -1,56 +1,99 @@
+// Rock Paper Scissors Game
+
+
+// Random Choice
 function getComputerChoice() {
-    // Computer's choice
-    let gameChoices = ["rock", "paper", "scissors"];
-    let computerPick = gameChoices[Math.floor(Math.random() * gameChoices.length)];
-    return computerPick;
-}
-function getPlayerChoice() {
-  let rock = document.getElementById("rock");
-  rock.addEventListener('click', "rock");
-
-  let paper = document.getElementById("paper");
-  rock.addEventListener('click', "paper");
-
-  let scissors = document.getElementById("scissors");
-  rock.addEventListener('click', "scissors");
-}
-
-let playerSelection = getPlayerChoice();
-let computerSelection = getComputerChoice();
-
-let resultText = document.getElementById("win-lose");
-
-function playRound(playerSelection, computerSelection){
-
-     //a = a.toString().toLowerCase();
-
-  if (playerSelection == "rock" & computerSelection == "paper"){
-    return `You Lose! ${computerSelection} beats ${playerSelection}!`;
-  }
-  else if (playerSelection == "paper" & computerSelection == "rock"){
-    return `You Win! ${playerSelection} beats ${computerSelection}!`
-  }
-  else if(playerSelection == "scissors" & computerSelection == "rock"){
-    return `You Lose! ${computerSelection} beats ${playerSelection}!`
-  }
-  else if(playerSelection == "rock" & computerSelection == "scissors"){
-    return `You Win! ${playerSelection} beats ${computerSelection}!`
-  }
-  else if(playerSelection == "paper" & computerSelection == "scissors"){
-    return `You Lose! ${computerSelection} beats ${playerSelection}!`
-  }
-  else if(playerSelection == "scissors" & computerSelection == "paper"){
-    return `You Win! ${playerSelection} beats ${computerSelection}!`
-  }
-  else if(playerSelection == computerSelection) {
-    return "Tie";
-  }
-  else{
-    return "No player";
-  }
+    let gameStrings = ["rock", "paper", "scissors"];
+    let genReturn = Math.floor(Math.random() * gameStrings.length);
+    return gameStrings[genReturn];
 }
 
 
-function game() {
+// Player picks
 
+rockPlayer = 'rock'
+paperPlayer = 'paper'
+scissorsPlayer = 'scissors'
+
+// Score Sheet
+playerScore = 0;
+computerScore = 0;
+
+// Plays one round of rock paper scissors and updates the score
+function oneRound(playerPick){
+    const computerPick = getComputerChoice();
+
+    playerPick = playerPick.toLowerCase();
+
+    if(playerPick == 'rock' && computerPick == 'scissors' || 
+       playerPick == 'scissors' && computerPick == 'paper' ||
+       playerPick == 'paper' && computerPick == 'rock'){
+            playerScore++;
+            return `You Won! ${playerPick} beats ${computerPick}.`;
+    }
+    else if(computerPick == 'rock' && playerPick == 'scissors' || 
+            computerPick == 'scissors' && playerPick == 'paper' ||
+            computerPick == 'paper' && playerPick == 'rock'){
+                computerScore++;
+                return `You Lost! ${computerPick} beats ${playerPick}.`;
+            }
+    else if(playerPick == computerPick){
+        return 'You Tied'
+    }
+    else{
+        return 'You have to pick one of rock, paper, scissors'
+    }
 }
+
+
+// Game Results
+
+// let result = fiveRounds();
+    function fiveRounds(){
+        if(playerScore === 5){
+            return 'You won the game!'; 
+        }
+        else if(computerScore === 5){
+            return 'You lost! Bot wins'; 
+        }
+    }
+
+
+
+
+
+
+
+
+// function playRound(playerPick,computerPick){
+    
+//     playerScore = 0;
+//     computerScore = 0;
+//     playerPick = playerPick.toString().toLowerCase();
+//     if(playerPick == 'rock' && computerPick == 'scissors' || 
+//        playerPick == 'scissors' && computerPick == 'paper' ||
+//        playerPick == 'paper' && computerPick == 'rock'){
+//             playerScore++;
+//             return `You Won! ${playerPick} beats ${computerPick}.`;
+//     }
+//     else if(computerPick == 'rock' && playerPick == 'scissors' || 
+//             computerPick == 'scissors' && playerPick == 'paper' ||
+//             computerPick == 'paper' && playerPick == 'rock'){
+//                 computerScore++;
+//                 return `You Lost! ${computerPick} beats ${playerPick}.`;
+//             }
+//     else if(playerPick == computerPick){
+//         return 'You Tied'
+//     }
+//     let result = fiveRounds();
+//     function fiveRounds(playerScore, computerScore){
+//         if(playerScore == 5){
+//             return 'You won the game!'; 
+//         }
+//         else if(computerScore == 5){
+//             return 'You lost! Bot wins'; 
+//         }
+//     }
+//     return result;
+
+// }
