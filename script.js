@@ -9,11 +9,6 @@ function getComputerChoice() {
 }
 
 
-// Player picks
-
-rockPlayer = 'rock'
-paperPlayer = 'paper'
-scissorsPlayer = 'scissors'
 
 // Score Sheet
 playerScore = 0;
@@ -22,7 +17,7 @@ computerScore = 0;
 // Plays one round of rock paper scissors and updates the score
 function oneRound(playerPick){
     const computerPick = getComputerChoice();
-
+    var playerPick = prompt('Chose: Rock/Paper/Scissors', "");
     playerPick = playerPick.toLowerCase();
 
     if(playerPick == 'rock' && computerPick == 'scissors' || 
@@ -41,21 +36,26 @@ function oneRound(playerPick){
         return 'You Tied'
     }
     else{
-        return 'You have to pick one of rock, paper, scissors'
+        return 'You have to pick one of: rock/paper/scissors'
+    }
+};
+
+function theGame() {
+    if(playerScore < 5 || computerScore < 5){
+        console.log(oneRound());
     }
 }
 
 
+
 // Game Results
 
-// let result = fiveRounds();
-    function fiveRounds(){
-        if(playerScore === 5){
-            return 'You won the game!'; 
-        }
-        else if(computerScore === 5){
-            return 'You lost! Bot wins'; 
-        }
-    }
+        // if(playerScore >= 5 && computerScore < 5){
+        //     document.write('You won the game!'); 
+        // }
+        // else if(computerScore >= 5 && playerScore < 5){
+        //     document.write('You lost! Bot wins'); 
+        // }
 
 
+ 
