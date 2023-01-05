@@ -41,9 +41,20 @@ function oneRound(playerPick){
 };
 
 function theGame() {
-    if(playerScore < 5 || computerScore < 5){
         console.log(oneRound());
-    }
+        console.log(oneRound());
+        console.log(oneRound());
+        console.log(oneRound());
+        console.log(oneRound());
+        if(playerScore > computerScore){
+            return 'You won!'
+        }
+        else if(playerScore < computerScore){
+            return 'You lost!'
+        }
+        else{
+            return 'It\'s a tie!'
+        }
 }
 
 
